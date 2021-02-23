@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.net.SocketTimeoutException;
 import java.sql.SQLOutput;
 
+/**
+ * Ahol indokolt és még az IDE is ajánlja használj új típusú for-ciklust: lásd (1)
+ * Próbáld a feladatokat külön függvényekbe rendezni
+ */
 public class Main {
 
     public static double maxElement( double array[] ){
@@ -41,7 +45,11 @@ public class Main {
             System.out.printf("%c\n", szo.charAt(i));
         }
 
-        System.out.printf("\n");
+        /**
+         * Nincs értelme printf-et használni ebben az esetben.
+         * Tökéletesen megfelel az egyszerű print is.
+         */
+        System.out.print("\n");
 
         // 4feladat
 
@@ -49,8 +57,11 @@ public class Main {
         String nev2 = "Kerekes Bálint Ádám József";
         tomb = nev2.split(" ");
 
-        for (int i=0; i < tomb.length; i++) {
-            System.out.printf("%c",tomb[i].charAt(0));
+        /**
+         * (1) Például itt
+         */
+        for (String s : tomb) {
+            System.out.printf("%c", s.charAt(0));
         }
 
         System.out.printf("\n\n");
