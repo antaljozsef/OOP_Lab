@@ -3,7 +3,8 @@ package bankaccount;
 public class Bankaccount {
 
     //Attributes -> tulajdonsagok
-    private double balance; //egysegbezaras -> encapsulation
+    private double balance;//egysegbezaras -> encapsulation
+    public double money;
     private String accountNumber;
 
 
@@ -13,6 +14,7 @@ public class Bankaccount {
     ///inicializalas, lefoglalas
 
     public Bankaccount() {
+
         this.balance = 0;
     }
 
@@ -22,17 +24,46 @@ public class Bankaccount {
     }
 
     public Bankaccount(double balance) {
+
         this.balance = balance;
     }
 
+    public boolean putIn(double money) {
+        if (money >= 0) {
+            balance += money;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean takeOut(double money) {
+        if (balance >= money) {
+            balance -= money;
+            return true;
+        }
+        return false;
+    }
+
     //Getters
-    public double getBalance(){
+    public double getBalance() {
         return this.balance;
+    }
+
+    public String getAccountNumber() {
+        return this.accountNumber;
     }
 
     //Setters
 
-    public void setAccountNumber(String accountNumber){
+    /**
+     * public void setBalance(double money){
+     * this.balance += money;
+     * }money
+     */
+
+
+    public void setAccountNumber(String accountNumber) {
+
         this.accountNumber = accountNumber;
     }
 
