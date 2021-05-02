@@ -1,15 +1,15 @@
 package Lab10_2;
 
-public class Emloyee{
-    private int ID;
+public class Emloyee implements Comparable<Emloyee>{
+    private final int ID;
     private String firstName;
     private String lastName;
     private double salary;
     private MyDate birthDate;
-    private int counter;
+    private static int counter = 1;
 
-    public Emloyee(int ID, String firstName, String lastName, double salary, MyDate birthDate, int counter) {
-        this.ID = ;
+    public Emloyee(String firstName, String lastName, double salary, MyDate birthDate) {
+        this.ID = counter;
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
@@ -21,6 +21,10 @@ public class Emloyee{
 
     public int getID() {
         return ID;
+    }
+
+    public MyDate getBirthDate() {
+        return birthDate;
     }
 
     public String getFirstName() {
@@ -45,14 +49,30 @@ public class Emloyee{
         this.salary = salary;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setBirthDate(MyDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    //Other
+
     @Override
     public String toString() {
-        return "Emloyee{" +
-                "ID=" + ID +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", salary=" + salary +
-                ", counter=" + counter +
-                '}';
+        return "ID: " + this.ID + "\n" +this.firstName + "\n" + this.lastName + "\n" + this.salary + "\n" + this.birthDate;
+    }
+
+    @Override
+    public int compareTo(Emloyee o) {
+        String thisName = this.lastName + this.firstName;
+        String oName = o.lastName + o.firstName;
+
+        return thisName.compareTo(oName);
     }
 }
